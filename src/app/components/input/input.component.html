@@ -1,0 +1,22 @@
+<div class="input-container">
+
+  <mat-form-field class="example-full-width">
+    <input
+      type="text"
+      id="search"
+      matInput
+      placeholder="Введите запрос"
+      [(ngModel)]="searchWord"
+      [minlength]="minLength"
+      (keyup.enter)="handleChange()"
+      >
+<!--      //(ngModelChange)="handleChange()"//-->
+
+  </mat-form-field>
+  <mat-error>
+<!--    Минимальная длинна {{ minLength }}. Сейчас {{searchWord.length}}-->
+  </mat-error>
+
+</div>
+
+
