@@ -18,7 +18,6 @@ export class MyTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatTable) table: MatTable<MyTableItem>;
   dataSource: MyTableDataSource;
   isLoaded: boolean = true
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'comment'];
   data$: Observable<any>
 
@@ -35,6 +34,5 @@ export class MyTableComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
-
 
 }

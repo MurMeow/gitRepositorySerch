@@ -30,6 +30,7 @@ const EXAMPLE_DATA: MyTableItem[] = [
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
+
 export class MyTableDataSource extends DataSource<MyTableItem> {
   data: MyTableItem[] = EXAMPLE_DATA;
   paginator: MatPaginator;
