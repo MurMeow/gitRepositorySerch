@@ -1,0 +1,18 @@
+<div class="card-error-container" >
+  <div class="background" (click)="closeCardError()"> </div>
+  <mat-card class="main">
+    <h2>Error card</h2>
+    <div class="mat-card-container">
+
+      <p>{{ error.status }}</p>
+      <p>{{ error.statusText }}</p>
+      <p>{{ error.message }}</p>
+
+    </div>
+    <div class="button">
+      <button mat-raised-button (click)="closeCardError()">Try one more time</button>
+    </div>
+
+  </mat-card>
+
+</div>
