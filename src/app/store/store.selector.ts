@@ -1,46 +1,35 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store'
+import { ErrorState, IAppState, searchResults, State } from "../redusers"
 
-export interface FeatureStateIsLoading {
-  isLoading: boolean;
-}
-export interface AppStateIsLoading {
-  isLoading: FeatureStateIsLoading
-}
-export const selectIsLoading = (state: AppStateIsLoading) => state.isLoading;
-export const selectStateIsLoading = createSelector(
-  selectIsLoading,
-  (state: FeatureStateIsLoading) => state.isLoading
-);
+export const selectFeatureAppState = createFeatureSelector<IAppState>(searchResults)
 
+export const  selectData = createSelector(
+  // @ts-ignore
+  selectFeatureAppState,
+  (state:State): object => state.data
+)
 
+export const  selectSearchWord = createSelector(
+  // @ts-ignore
+  selectFeatureAppState,
+  (state:State): string => state.searchWord
+)
 
+export const  selectCard = createSelector(
+  // @ts-ignore
+  selectFeatureAppState,
+  (state:State): object | null => state.selectedCard
+)
 
-export interface FeatureStateData {
-  data: object | null;
-}
-export interface AppStateData {
-  data: FeatureStateData;
-}
-export const selectData = (state: AppStateData) => state.data;
-export const selectStateData = createSelector(
-  selectData,
-  (state: FeatureStateData) => state.data
-);
+export const  selectIsLoading = createSelector(
+  // @ts-ignore
+  selectFeatureAppState,
+  (state:State): boolean => state.isLoading
+)
 
-
-export const selectSearchWord = (state) => state.searchWord;
-export const selectStateSearchWord = createSelector(
-  selectSearchWord,
-  (state) => state.searchWord
-);
-
-
-export interface FeatureStateData {
-  data: object | null;
-}
-export const selectFeature = (state: FeatureStateData) => state.data;
-export const selectFeatureData = createSelector(
-  selectFeature,
-  (state: FeatureStateData) => state.data
-);
+export const  selectError = createSelector(
+  // @ts-ignore
+  selectFeatureAppState,
+  (state:State): ErrorState | null => state.error
+)
 

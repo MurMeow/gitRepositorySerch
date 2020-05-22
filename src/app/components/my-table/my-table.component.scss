@@ -3,9 +3,13 @@
 }
 
 .mat-column-id{
-  width: 10%;
+  width: 25%;
 }
 
 .mat-column-name{
-  width: 35%;
+  width: 25%;
+  .table-name-span{
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

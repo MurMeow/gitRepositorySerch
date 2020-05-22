@@ -3,9 +3,15 @@
 
   <app-input></app-input>
 
-  <app-my-table></app-my-table>
+  <p *ngIf="!isLoadedTable && !isLoadedPreloader" >No results</p>
 
-  <app-card></app-card>
+  <app-cardError-notification *ngIf="isLoadedError" ></app-cardError-notification>
+
+  <app-preloader *ngIf="isLoadedPreloader" ></app-preloader>
+
+  <app-my-table *ngIf="isLoadedTable && !isLoadedPreloader"></app-my-table>
+
+  <app-card *ngIf="isLoadedCard"></app-card>
 
 </div>
 

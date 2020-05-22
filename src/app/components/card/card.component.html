@@ -1,21 +1,23 @@
 <div class="card-container" *ngIf="isLoaded">
-
-  <mat-card class="main">
-    <h2>Информационная карточка</h2>
-    <div class="mat-card-container">
-
-      <div class="mat-card-gitHub">
-        <mat-card></mat-card>
+  <div class="background" (click)="closeCard()"> </div>
+    <mat-card class="main">
+      <h2>Information card</h2>
+      <div class="mat-card-container">
+        <img [src]="card.avatar_url" alt="avatar"/>
+        <p>name:  {{ card.name}}</p>
+        <p>login:  {{ card.login}}</p>
+        <p>date created:  {{ card.created_at}}</p>
+        <a href="{{card.html_url}}" target="_blank">
+          <p>url: {{card.html_url}}</p>
+        </a>
+        <p>date last updated:  {{ card.updated_at}}</p>
+      </div>
+      <div class="button">
+        <button mat-raised-button (click)="closeCard()">Close</button>
       </div>
 
-      <div class="mat-card-info">
-        <mat-card></mat-card>
-      </div>
-    </div>
-    <div class="button">
-      <button mat-raised-button>Закрыть</button>
-    </div>
+    </mat-card>
 
-  </mat-card>
+
 </div>
 

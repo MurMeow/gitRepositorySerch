@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { catchError, switchMap, tap } from 'rxjs/operators';
-import { GithubService } from '../services/github.service';
-import { fetchInfoFromGithub, getResponseToRequestGithubSuccess, getResponseToRequestGithubError } from "./store.actions";
-import { Store } from "@ngrx/store";
-
+import { Injectable } from '@angular/core'
+import { Actions, Effect, ofType } from '@ngrx/effects'
+import { of } from 'rxjs'
+import { catchError, switchMap, tap } from 'rxjs/operators'
+import { GithubService } from '../services/github.service'
+import { fetchInfoFromGithub, getResponseToRequestGithubSuccess, getResponseToRequestGithubError } from "./store.actions"
+import { Store } from "@ngrx/store"
 
 @Injectable()
 export class FetchEffects  {
@@ -14,8 +13,8 @@ export class FetchEffects  {
   getData$ = this.actions$.pipe(
       ofType(fetchInfoFromGithub),
       switchMap((searchWord) => this.githubService.getFetch(searchWord.searchWord)
-      .pipe(
-        tap(action => console.log(action)),
+        .pipe(
+        // tap(action => console.log(action)),
         switchMap((data) => of( getResponseToRequestGithubSuccess({data}))),
         catchError((error) => of( getResponseToRequestGithubError({error})))
       )

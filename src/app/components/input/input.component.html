@@ -6,10 +6,11 @@
       type="text"
       id="search"
       matInput
-      placeholder="Введите запрос"
+      placeholder="Enter search query"
       [(ngModel)]="searchWord"
       [minlength]="minLength"
-      (keyup.enter)="handleChange()"
+      (keyup.enter)="keyupEnter()"
+      (change)="handleChange()"
       >
 
   </mat-form-field>

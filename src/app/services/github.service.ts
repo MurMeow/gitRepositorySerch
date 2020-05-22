@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,8 @@ export class GithubService {
   ) { }
 
   getFetch(searchWord) {
-    const url = `https://api.github.com/search/repositories?q=${searchWord}`;
+    const url = `https://api.github.com/search/repositories?q=${ searchWord }`
     return this.http.get(url)
   }
-
 }
 
